@@ -494,7 +494,8 @@ http://www.tooplate.com/view/2106-soft-landing
   }
 
   #testimonial h1 {
-    color: #ffffff;
+    color: black;
+    text-align:center;
   }
 
   .testimonial-image {

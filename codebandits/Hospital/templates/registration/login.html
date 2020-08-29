@@ -1,23 +1,86 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Hospital Login</title>
-    </head>
-    <body>
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <table>
-              <tr>
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
-              </tr>
-              <tr>
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
-              </tr>
-            </table>
-            <input type="submit" value="login" />
-            <input type="hidden" name="next" value="{{ next }}" />
-          </form>
-    </body>
+<html lang="en">
+<head>
+	<title>Login V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load static %}
+	<link rel="icon" type="image/png" href="{% static 'Hospital/favicon.ico' %}"/>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/bootstrap.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/font-awesome.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/iconfont.min' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/animate.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/hamburgers.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/animsition.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/select2.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/daterangepicker.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'Hospital/main1.css' %}">
+
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form class="login100-form validate-form flex-sb flex-w" method="post" action="{% url 'login' %}" >
+					{% csrf_token %}
+					<span class="login100-form-title p-b-51">
+						Login
+					</span>
+
+					<table>
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+						<tr>
+							<td>{{ form.username.label_tag }}</td>
+							<span class="focus-input100"><td>{{ form.username }}</td></span>
+							
+						  </tr>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<td>{{ form.password.label_tag }}</td>
+						<span class="focus-input100"><td>{{ form.password }}</td></span>
+					</div>
+					
+					
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" type="submit" value="login">Login</button>		
+					</div>
+</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	
+
+	<script src="{% static 'Hospital/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'Hospital/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'Hospital/popper.js' %}"></script>
+	<script src="{% static 'Hospital/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'Hospital/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'Hospital/moment.min.js' %}"></script>
+	<script src="{% static 'Hospital/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'Hospital/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'Hospital/main.js' %}"></script>
+
+</body>
 </html>
