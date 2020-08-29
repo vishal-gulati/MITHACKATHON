@@ -25,7 +25,8 @@ class Hospital(models.Model):
     l3beds=models.IntegerField()
     l3bedso=models.IntegerField()
     ppe=models.IntegerField()
-    med=models.ForeignKey(medicine,on_delete=models.CASCADE)
+    Remdisivir=models.IntegerField()
+    FabiFlu=models.IntegerField()
     Mob=models.CharField(max_length=12)
     email=models.EmailField(max_length=254)
     def __str__(self):
