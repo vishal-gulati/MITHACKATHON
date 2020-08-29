@@ -40,7 +40,7 @@ def Index(request):
 def Graph(request):
     hospitallist=list(Hospital.objects.all())
     beds=[0,0,0]
-    bedsl=[l1beds,l2beds,l3beds]
+    bedsl=['l1beds','l2beds','l3beds']
     for a in hospitallist:
         beds[0]=beds[0]+a.l1beds
         beds[1]=beds[1]+a.l2beds
