@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>PPE and Medicines Availability Status</title>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="team" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'Hospital/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Hospital/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'Hospital/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Hospital/fa.css' %}">
+	<link rel="stylesheet" href="{% static 'Hospital/main.css' %}">
+	<link rel="stylesheet" href="{% static 'Hospital/tooplatestyle.css' %}">
+
+</head>
+
+<body>
+
+
+	<section class="preloader">
+		<div class="spinner">
+
+			<span class="spinner-rotate"></span>
+
+		</div>
+	</section>
+
+
+
+	<section id="feature" data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-12 col-sm-12">
+					<div class="section-title">
+						<div class="section-title">
+							<h1 align="center">PPE and Medicines Availability Status</h1>
+						</div>
+
+					</div>
+				</div>
+				<form method="POST" action="{% url 'Index' %}">
+					{% csrf_token %}
+					<label for="city">Choose the City</label>
+					<select name="city" id="city">
+					{% for b in cl %}
+					<option value="{{b}}">{{b.Name}}</option>
+					{% endfor %}
+				</select>
+				<button type="submit" value="submit">Submit</button>
+				</form>
+
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Name</th>
+								<th class="column2">City</th>
+								<th class="column3">PPE Kits</th>
+								<th class="column3">Medicine-Remdesivir</th>
+                <th class="column3">Medicine-FabiFlu</th>
+								<th class="column9">Contact No</th>
+								<th class="column10">E-mail</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for a in hl %}
+								<tr>
+									<td class="column1">{{a.Name}}</td>
+                                    <td class="column2">{{a.City}}</td>
+                                    <td class="column3">{{a.ppe}}</td>
+                                    <td class="column3">{{a.Remdisivir}}</td>
+                                        <td class="column3">{{a.FabiFlu}}</td>
+									<td class="column9">{{a.Mob}}</td>
+									<td class="column10">{{a.email}}</td>
+								</tr>
+								{% endfor %}
+
+						</tbody>
+					</table>
+
+
+
+
+
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<script src="{% static 'Hospital/jquery.js' %}"></script>
+	<script src="{% static 'Hospital/bootstrap.min.js' %}"></script>
+	<script src="{% static 'Hospital/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'Hospital/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'Hospital/smoothscroll.js' %}"></script>
+	<script src="{% static 'Hospital/custom.js' %}"></script>
+
+</body>
+
+</html>

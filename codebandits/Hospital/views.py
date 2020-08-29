@@ -8,7 +8,6 @@ def Home(request):
         hosp=[]
         for c in hospitallist:
             n=c.City.Name
-            print(n)
             if request.POST.get("city")==n:
                 hosp.append(c)
         return render(request,'index.html',{'hl':hosp,'cl':citylist})
@@ -16,3 +15,21 @@ def Home(request):
         hospitallist=list(Hospital.objects.all())
         citylist=list(City.objects.all())
         return render(request,'index.html',{'hl':hospitallist,'cl':citylist})
+
+def Index(request):
+    if(request.method=='POST'):
+        user=request.user
+        citylist=list(City.objects.all())
+        hospitallist=list(Hospital.objects.all())
+        hosp=[]
+        for c in hospitallist:
+            n=c.City.Name
+            if request.POST.get("city")==n:
+                hosp.append(c)
+        return render(request,'hospital.html',{'hl':hospitallist,'b':user,'cl':citylist})
+    else:
+        user=request.user
+        hospitallist=list(Hospital.objects.all())
+        citylist=list(City.objects.all())
+        return render(request,'hospital.html',{'hl':hospitallist,'b':user,'cl':citylist})
+    
