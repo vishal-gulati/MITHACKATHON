@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from Hospital import views as hviews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Hospital/',include('Hospital.urls')),
-
+    path('',hviews.Home,name='Home')
 ]

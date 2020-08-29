@@ -121,32 +121,21 @@
 							</tr>
 						</thead>
 						<tbody>
+							{% for a in hl %}
 								<tr>
-									<td class="column1">Arora Neuro Center</th>
-									<td class="column2">Ludhiana</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column9">7087021847</th>
-									<td class="column10">jain@uhu.vndus</th>
+									<td class="column1">{{a.Name}}</th>
+									<td class="column2">{{a.City}}</th>
+									<td class="column3">{{a.l1beds}}</th>
+									<td class="column3">{{a.l1bedso}}</th>
+									<td class="column3">{{a.l2beds}}</th>
+									<td class="column3">{{a.l2bedso}}</th>
+									<td class="column3">{{a.l3beds}}</th>
+									<td class="column3">{{a.l3bedso}}</th>
+									<td class="column9">{{a.Mob}}</th>
+									<td class="column10">{{a.email}}</th>
 								</tr>
-								<tr>
-									<td class="column1">Arora Neuro Center</th>
-									<td class="column2">Ludhiana</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column3">100</th>
-									<td class="column9">7087021847</th>
-									<td class="column10">jain@uhu.vndus</th>
-								</tr>
-
-
+								{% endfor %}
+								
 						</tbody>
 					</table>
 				<!-- </div>
