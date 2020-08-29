@@ -6,10 +6,10 @@
     <body>
         <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
-            <label for="UserName">UserName</label>
-            <input type="text" id="UserName"><br>
-            <label for="pass">Password</label>
-            <input type="password" id="pass">
+            <label for="username">UserName</label>
+            <input type="text" id="username"><br>
+            <label for="password">Password</label>
+            <input type="password" id="password">
             <br>
             <button type="submit">Submit</button>
         </form>
