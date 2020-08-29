@@ -10,11 +10,6 @@ class City(models.Model):
     State=models.ForeignKey(State, on_delete=models.CASCADE)
     def __str__(self):
         return '%s' % (self.Name)
-class medicine(models.Model):
-    Remdisivir=models.IntegerField()
-    FabiFlu=models.IntegerField()
-    def __str__(self):
-        return '%s' % ('Medicine')
 class Hospital(models.Model):
     Name=models.CharField(max_length=100,unique=True)
     City=models.ForeignKey(City, on_delete=models.CASCADE)
