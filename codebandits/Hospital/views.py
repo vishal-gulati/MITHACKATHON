@@ -45,9 +45,11 @@ def Graph(request):
         beds[0]=beds[0]+a.l1beds
         beds[1]=beds[1]+a.l2beds
         beds[2]=beds[2]+a.l3beds
-    plt.pie(data, labels =bedsl)
+    plt.pie(beds, labels =bedsl)
     fig=plt.gcf()
     buf=io.BytesIO()
+    fig.savefig(buf,format='png')
+    buf.seek(0)
     string = base64.b64encode(buf.read())
     url = urllib.parse.quote(string)
-    return render(request,'index.html',{'data':url})
+    return render(request,'home.html',{'data':url})
