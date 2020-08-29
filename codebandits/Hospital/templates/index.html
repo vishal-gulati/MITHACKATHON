@@ -100,6 +100,16 @@
 
 					</div>
 				</div>
+				<form method="POST" action="{% url 'Home' %}">
+					{% csrf_token %}
+					<label for="city">Choose the City</label>
+					<select name="city" id="city">
+					{% for b in cl %}
+					<option value="{{b}}">{{b.Name}}</option>
+					{% endfor %}
+				</select>
+				<button type="submit" value="submit">Submit</button>
+				</form>
 	<!-- <div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
