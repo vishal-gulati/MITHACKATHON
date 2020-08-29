@@ -4,14 +4,14 @@
         <title>Hospital Login</title>
     </head>
     <body>
-        <form method="POST" action="{% url 'login' %}">
+        <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <label for="username">UserName</label>
             <input type="text" id="username"><br>
             <label for="password">Password</label>
             <input type="password" id="password">
             <br>
-            <button type="submit">Submit</button>
+            <button type="submit" value="login">Submit</button>
         </form>
     </body>
 </html>
