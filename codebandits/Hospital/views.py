@@ -8,7 +8,6 @@ def Home(request):
         hosp=[]
         for c in hospitallist:
             n=c.City.Name
-            print(n)
             if request.POST.get("city")==n:
                 hosp.append(c)
         return render(request,'index.html',{'hl':hosp,'cl':citylist})
