@@ -4,7 +4,8 @@
         <title>Hospital Login</title>
     </head>
     <body>
-        <form method="POST">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
             <label for="UserName">UserName</label>
             <input type="text" id="UserName"><br>
             <label for="pass">Password</label>
