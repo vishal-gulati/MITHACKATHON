@@ -104,7 +104,7 @@ label {
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+	background: black;
 }
 
 button:hover {
@@ -150,13 +150,14 @@ iframe {
   
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;;
+  background-repeat: no-repeat;
+  background-color:white;
 }
 
 
 .wrap-login100 {
   width: 390px;
-  background: #fff;
+  background:#A8A8A8;
   border-radius: 10px;
   position: relative;
 }
