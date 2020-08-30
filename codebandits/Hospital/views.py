@@ -10,32 +10,35 @@ def Home(request):
         citylist=list(City.objects.all())
         hospitallist=list(Hospital.objects.all())
         beds=[0,0,0]
+        bedsa=[0,0,0]
         bedsl=['l1beds','l2beds','l3beds']
         hosp=[]
         for c in hospitallist:
             n=c.City.Name
-            if request.POST.get("city")==n:
-                hosp.append(c)
-                beds[0]=beds[0]+c.l1beds
-                beds[1]=beds[1]+c.l2beds
-                beds[2]=beds[2]+c.l3beds
-        plt.pie(beds, labels =bedsl)
-        fig=plt.gcf()
-        fig.savefig('Hospital/static/Hospital/a.png')
-        return render(request,'index.html',{'hl':hosp,'cl':citylist})
-    else:
-        hospitallist=list(Hospital.objects.all())
-        citylist=list(City.objects.all())
-        beds=[0,0,0]
-        bedsl=['l1beds','l2beds','l3beds']
-        for c in hospitallist:
             beds[0]=beds[0]+c.l1beds
             beds[1]=beds[1]+c.l2beds
             beds[2]=beds[2]+c.l3beds
-
-        plt.pie(beds, labels =bedsl)
-        fig=plt.gcf()
-        fig.savefig('Hospital/static/Hospital/a.png')
+            bedsa[0]=bedsa[0]+c.l1bedso
+            bedsa[1]=bedsa[1]+c.l2bedso
+            bedsa[2]=bedsa[2]+c.l3bedso
+            
+            if request.POST.get("city")==n:
+                hosp.append(c)
+        if request.POST.get("graph")=="True":
+            bedsa[0]=beds[0]-bedsa[0]
+            bedsa[1]=beds[1]-bedsa[1]
+            bedsa[2]=beds[2]-bedsa[2]
+            plt.pie(beds, labels =bedsl)
+            fig=plt.gcf()
+            fig.savefig('Hospital/static/Hospital/a.png')
+            plt.pie(bedsa, labels =bedsl)
+            fig=plt.gcf()
+            fig.savefig('Hospital/static/Hospital/b.png')
+        return render(request,'index.html',{'hl':hosp,'cl':citylist})
+    else:
+        hospitallist=list(Hospital.objects.all())
+        citylist=list(City.objects.all())      
+        
         return render(request,'index.html',{'hl':hospitallist,'cl':citylist})
 
 def Index(request):
