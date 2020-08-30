@@ -14,9 +14,7 @@ def Home(request):
         bedsc=[0,0,0]
         bedsl=['l1beds','l2beds','l3beds']
         hosp=[]
-        b={}
-        for d in citylist:
-            b[d.Name]=0
+        
         for c in hospitallist:
             n=c.City.Name
             beds[0]=beds[0]+c.l1beds
@@ -25,7 +23,7 @@ def Home(request):
             bedsa[0]=bedsa[0]+c.l1bedso
             bedsa[1]=bedsa[1]+c.l2bedso
             bedsa[2]=bedsa[2]+c.l3bedso
-            b[c.City.Name]=b[c.City.Name]+c.l1beds+c.l2beds+c.l3beds
+            
             if request.POST.get("city")==n:
                 hosp.append(c)
         if request.POST.get("graph")=="True":
@@ -39,11 +37,7 @@ def Home(request):
             plt.pie(bedsa, labels =bedsl)
             fig=plt.gcf()
             fig.savefig('Hospital/static/Hospital/b.png')
-            cities = list(b.keys()) 
-            cb = list(b.values())
-            plt.bar(cities,cb, color ='maroon',width = 0.4)
-            fig=plt.gcf()
-            fig.savefig('Hospital/static/Hospital/c.png')
+            
         return render(request,'index.html',{'hl':hosp,'cl':citylist})
     else:
         hospitallist=list(Hospital.objects.all())
