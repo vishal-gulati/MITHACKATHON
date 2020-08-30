@@ -21,24 +21,8 @@ def Home(request):
                 beds[2]=beds[2]+c.l3beds
         plt.pie(beds, labels =bedsl)
         fig=plt.gcf()
-<<<<<<< HEAD
-        buf=io.BytesIO()
-        fig.savefig(buf,format='png')
-        buf.seek(0)
-        string = base64.b64encode(buf.read())
-        url = urllib.parse.quote(string)
-        plt.pie(bedsc, labels =bedsl)
-        fig=plt.gcf()
-        buf=io.BytesIO()
-        fig.savefig(buf,format='png')
-        buf.seek(0)
-        string = base64.b64encode(buf.read())
-        url1 = urllib.parse.quote(string)
-        return render(request,'index.html',{'hl':hosp,'cl':citylist,'data':url,'data1':url1})
-=======
-        fig.savefig('Hospital/static/Hospital/a.png')       
+        fig.savefig('Hospital/static/Hospital/a.png')
         return render(request,'index.html',{'hl':hosp,'cl':citylist})
->>>>>>> 76ea88548c72d4ec95ec77ebf615fc0570f9a81f
     else:
         hospitallist=list(Hospital.objects.all())
         citylist=list(City.objects.all())
